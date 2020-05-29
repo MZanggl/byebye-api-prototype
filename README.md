@@ -21,3 +21,5 @@ exports.getProject = async (id) => {
   return { id, name: 'dummy' }
 }
 ```
+
+Under the hood, it creates the JSON API automatically and turns backend imports on the frontend into HTTP requests (see `backend/index.js` and `magicLoader.js`).
