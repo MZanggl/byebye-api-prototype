@@ -13,7 +13,7 @@ module.exports = function magicLoader(source) {
         method: "POST",
         body: JSON.stringify({ args }),
         headers: { 'Content-Type': 'application/json' }
-      }).then(res => res.json())
+      }).then(res => res.json()).then(res => res.result)
     }`
   })
 

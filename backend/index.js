@@ -22,8 +22,9 @@ files.forEach(file => {
       throw new Error(`You can only export functions. [${typeof module[endpoint]}] is not valid.`)
     }
     console.log('registering endpoint...', `/api/${endpoint}`)
-    app.post(`/api/${endpoint}`, (req, res) => {
-      return res.json(module[endpoint](...req.body.args))
+    app.post(`/api/${endpoint}`, async (req, res) => {
+      const result = await module[endpoint](...req.body.args)
+      return res.json({ result })
     })
   })
 })
